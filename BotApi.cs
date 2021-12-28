@@ -82,7 +82,7 @@ namespace Wabooorrt.BotApi
 	{
 		public int X { get; set; }
 		public int Y { get; set; }
-		public int Coins { get; set; }
+		public int Energy { get; set; }
 		public int Health { get; set; }
 		public string? Name { get; set; } // dafuck?
 

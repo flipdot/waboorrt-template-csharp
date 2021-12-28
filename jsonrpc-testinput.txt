@@ -6,7 +6,7 @@
 		"me": {
 			"x": 1,
 			"y": 2,
-			"coins": 3,
+			"energy": 3,
 			"view_range": 4.5
 		},
 		"meta": {
