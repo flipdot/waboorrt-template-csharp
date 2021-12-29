@@ -3,7 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <RootNamespace>Wabooorrt</RootNamespace>
+
+    <LangVersion>latest</LangVersion>
     <Nullable>enable</Nullable>
+    <DebugType>portable</DebugType>
   </PropertyGroup>
 
   <ItemGroup>

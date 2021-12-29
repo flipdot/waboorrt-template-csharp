@@ -1,19 +1,18 @@
-FROM mcr.microsoft.com/dotnet/sdk:5.0-alpine AS build
+FROM mcr.microsoft.com/dotnet/sdk:6.0-alpine AS build
+    WORKDIR /app
 
-WORKDIR /app
+    COPY *.sln *.csproj ./
 
-COPY *.sln *.csproj ./
+    RUN dotnet restore
 
-RUN dotnet restore
+    COPY . ./
 
-COPY . ./
+    RUN dotnet publish -c Release -o out
 
-RUN dotnet publish -c Release -o out
+FROM mcr.microsoft.com/dotnet/aspnet:6.0-alpine AS runtime
+    WORKDIR /app
 
-FROM mcr.microsoft.com/dotnet/aspnet:5.0-alpine AS runtime
-WORKDIR /app
-
-EXPOSE 4000
-ENV ASPNETCORE_URLS=http://+:4000
-ENTRYPOINT ["dotnet", "Wabooorrt.dll"]
-COPY --from=build /app/out ./
+    EXPOSE 4000
+    ENV ASPNETCORE_URLS=http://+:4000
+    ENTRYPOINT ["dotnet", "Wabooorrt.dll"]
+    COPY --from=build /app/out ./
