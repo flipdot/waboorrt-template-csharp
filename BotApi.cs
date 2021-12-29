@@ -38,7 +38,7 @@ public record ThrowOp(int? X, int? Y) : IOperation
 
 public record LookOp(double? Range) : IOperation
 {
-    public string Name { get; init; } = "LOOK";
+    public string Name { get; } = "LOOK";
 }
 
 [JsonConverter(typeof(JsonStringEnumConverter))]
