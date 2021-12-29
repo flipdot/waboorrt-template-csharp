@@ -25,6 +25,11 @@ namespace Wabooorrt.BotApi
 		public string Name { get; init; } = "NOOP";
 	}
 
+	public class ChargeOp : IOperation
+	{
+		public string Name { get; init; } = "CHARGE";
+	}
+
 	public class WalkOp : IOperation
 	{
 		public string Name { get; init; } = "WALK";
